@@ -16,7 +16,7 @@ jobs:
 
       - name: Zip Folder
         run: |
-          zip -r Assets.zip . \
+          zip -r -9 Assets.zip . \
           -x "*.git*" \
           ".github*" \
           "README.md" \

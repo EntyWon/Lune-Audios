@@ -16,13 +16,13 @@ jobs:
 
       - name: Zip Folder
         run: |
-          7z a -tzip -mx=9 Assets.zip . \
-          -x!.git \
-          -x!.github \
-          -x!README.md \
-          -x!readme.md \
-          -x!LICENSE \
-          -x!.gitignore
+          zip -r -9 Assets.zip . \
+          -x "*.git*" \
+          ".github*" \
+          "README.md" \
+          "readme.md" \
+          "LICENSE*" \
+          ".gitignore"
 
       - name: Upload Release
         uses: softprops/action-gh-release@v1
@@ -30,6 +30,5 @@ jobs:
           files: Assets.zip
           tag_name: latest
           name: Latest Assets
-          overwrite: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
